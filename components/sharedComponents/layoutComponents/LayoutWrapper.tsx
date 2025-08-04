@@ -1,13 +1,9 @@
-import { getMessages } from "next-intl/server";
 import React from "react";
+import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-
 import NextTopLoad from "@/components/layout/NextTopLoader";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import ClientStore from "@/components/layout/ClientStore";
-import ClientWrapper from "@/components/sharedComponents/layoutComponents/ClientWrapper";
-import QueryProvider from "@/components/layout/QueryProvider";
 
 interface Props {
   children: React.ReactNode;
@@ -38,12 +34,7 @@ const LayoutWrapper = async ({ children, lng }: Props) => {
               {...antConfig}
             >
               <NextTopLoad />
-              <ClientStore>
-                <QueryProvider>
-                    {children}
-                </QueryProvider>
-                <ClientWrapper />
-              </ClientStore>
+                {children}
             </ConfigProvider>
           </AntdRegistry>
         </NextIntlClientProvider>

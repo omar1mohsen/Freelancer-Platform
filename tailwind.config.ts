@@ -14,53 +14,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#9732A4",
-        secondary: "#273c98",
-        header: "#171717e8",
-        secColor: "#F6F8FD",
-        dark: "#070706",
-        secondrydark: "#323232",
-        secondrytext: "#848484",
+          primary: {
+          50: '#f0f9ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        },
+        green: {
+          500: '#22c55e',
+          600: '#16a34a',
+        },
+
+        text: "#848484",
         platinum: "#E7E7E7",
-        secSuccess: "#E6FBF0",
-        success: {
-          DEFAULT: "#04BD5E",
-          500: "#03A853",
-          600: "#04D268",
-        },
-        error: {
-          DEFAULT: "#DB2024",
-          100: "#FEE9EA",
-          300: "#EF233C",
-        },
-        text: {
-          gray: "#3E3E3E",
-        },
-        gray: {
-          DEFAULT: "#a6a6a6",
-          100: "#F3F3F3",
-          200: "#9E9E9E",
-          300: "#8D8D8D",
-          400: "#B0B0B0",
-          500: "#4F4F4F",
-          600: "#a6a6a6",
-          700: "#6A6A6A",
-          900: "#545454",
-        },
-        border: "#CACACA",
-        placeholder: "#BDC1DF",
-        line: "#F5F6FF",
-        white: "#ffffff",
-        textColor: "#0F2239",
-        contentColor: "#546881",
-        "text-light": "var(--website_light_font_color)",
-        greynormal: "#F7F7F7",
-        secprimary: "#F5EBF6",
-        secgreynormal: "#FFF5EB",
-        footer: "#1E1E1E",
-        sub: "#8B9693",
-        transparent: "transparent",
-        current: "currentColor",
       },
       keyframes: {
         fadeUp: {

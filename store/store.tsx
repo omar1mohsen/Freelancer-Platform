@@ -1,20 +1,86 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import GeneralReducer from "@/store/general";
 
-const rootReducer = combineReducers({
-  generalConfig: GeneralReducer,
-});
+// src/store/useFreelancerStore.ts
+import { create } from 'zustand';
+import { Freelancer, FilterState, SortOption } from '@/types/index';
 
-export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(),
-  devTools: true,
-});
+interface FreelancerStore {
+  freelancers: Freelancer[];
+  filteredFreelancers: Freelancer[];
+  filters: FilterState;
+  sortBy: SortOption;
+  setFreelancers: (freelancers: Freelancer[]) => void;
+  setFilters: (filters: Partial<FilterState>) => void;
+  setSortBy: (sortBy: SortOption) => void;
+  searchByLocation: (location: string) => void;
+  applyFiltersAndSort: () => void;
+}
 
-// Setting up listeners for refetch behaviors
-setupListeners(store.dispatch);
+const initialFilters: FilterState = {
+  serviceOptions: '',
+  sellerDetails: '',
+  budget: '',
+  deliveryTime: '',
+  location: '',
+  sortBy: 'mostRated'
+};
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const useFreelancerStore = create<FreelancerStore>((set, get) => ({
+  freelancers: [],
+  filteredFreelancers: [],
+  filters: initialFilters,
+  sortBy: 'mostRated',
+  
+  setFreelancers: (freelancers) => {
+    set({ freelancers, filteredFreelancers: freelancers });
+    get().applyFiltersAndSort();
+  },
+  
+  setFilters: (newFilters) => {
+    set((state) => ({
+      filters: { ...state.filters, ...newFilters }
+    }));
+    get().applyFiltersAndSort();
+  },
+  
+  setSortBy: (sortBy) => {
+    set({ sortBy });
+    get().applyFiltersAndSort();
+  },
+  
+  searchByLocation: (location) => {
+    set((state) => ({
+      filters: { ...state.filters, location }
+    }));
+    get().applyFiltersAndSort();
+  },
+  
+  applyFiltersAndSort: () => {
+    const { freelancers, filters, sortBy } = get();
+    let filtered = [...freelancers];
+    
+    // Apply location filter
+    if (filters.location) {
+      filtered = filtered.filter(f => 
+        f.location.toLowerCase().includes(filters.location.toLowerCase())
+      );
+    }
+    
+    // Apply sorting
+    switch (sortBy) {
+      case 'mostRated':
+        filtered.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'lowestRated':
+        filtered.sort((a, b) => a.rating - b.rating);
+        break;
+      case 'highestPrice':
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+      case 'lowestPrice':
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+    }
+    
+    set({ filteredFreelancers: filtered });
+  }
+}));

@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Freelancer Platform - Next.js TypeScript Application
 
-## Getting Started
+A modern, responsive freelancer marketplace built with Next.js, TypeScript, Ant Design, and Tailwind CSS. Features internationalization (Arabic/English), advanced filtering, sorting, and a clean, professional design.
 
-First, run the development server:
+## 🚀 Features
 
+- **Responsive Design**: Mobile-first approach with beautiful UI
+- **Internationalization**: Full Arabic and English support with RTL layout
+- **Advanced Filtering**: Service options, seller details, budget, delivery time
+- **Smart Search**: Location-based search functionality  
+- **Dynamic Sorting**: Most rated, lowest rated, highest/lowest price
+- **State Management**: Zustand for efficient state handling
+- **Modern Tech Stack**: Next.js 15, TypeScript, Ant Design, SCSS modules
+- **Production Ready**: Clean code structure and best practices
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Ant Design + Tailwind CSS + SCSS Modules
+- **State Management**: Zustand
+- **Internationalization**: next-intl
+- **Icons**: Ant Design Icons
+- **Build Tools**: PostCSS, Autoprefixer
+
+## 📦 Installation
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd freelancer-platform
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Run development server**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Open your browser**
+Navigate to `http://localhost:3000`
 
-## Learn More
+## 🌍 Internationalization
 
-To learn more about Next.js, take a look at the following resources:
+The application supports both English and Arabic languages with:
+- RTL layout for Arabic
+- Localized content and UI elements
+- Language switcher in footer
+- URL-based locale routing (`/en/`, `/ar/`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Modern UI**: Clean, professional design matching the reference
+- **Responsive Grid**: Adaptive freelancer card layout
+- **Smooth Animations**: Hover effects and transitions
+- **Accessible**: Proper contrast and semantic markup
+- **Cross-browser**: Compatible with all modern browsers
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/[locale]/          # Next.js app router with locale support
+├── components/            # Reusable React components
+│   ├── FreelancerCard/   # Individual freelancer card
+│   ├── SearchFilters/    # Search and filter controls
+│   ├── Header/           # Navigation header
+│   └── Footer/           # Site footer with links
+├── store/                # Zustand state management
+├── types/                # TypeScript type definitions
+├── data/                 # Mock data and constants
+└── messages/             # Internationalization files
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🔧 Configuration Files
+
+- **next.config.js**: Next.js configuration with i18n
+- **tailwind.config.js**: Tailwind CSS customization
+- **i18n.ts**: Internationalization setup
+- **middleware.ts**: Route localization middleware
+
+## 🚀 Deployment
+
+The application is ready for deployment on:
+
+- **Vercel** (recommended): `vercel --prod`
+- **Netlify**: Build command: `npm run build`
+- **Any static hosting**: After `npm run build && npm run export`
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px  
+- **Desktop**: > 1024px
+
+## 🎯 Key Components
+
+### FreelancerCard
+- Profile image with hover effects
+- Rating system with stars
+- Pricing information
+- Call-to-action button
+
+### SearchFilters  
+- Location-based search
+- Multiple filter categories
+- Dynamic sorting options
+- Responsive layout
+
+### Footer
+- Comprehensive link sections
+- Social media integration
+- Language switcher
+- Company information
+
+## 🔍 State Management
+
+Using Zustand for:
+- Freelancer data management
+- Filter state handling
+- Search functionality
+- Sorting logic
+
+## 📄 License
+
+This project is created for assessment purposes.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+---
+
+**Built with ❤️ using Next.js, TypeScript, and modern web technologies**
