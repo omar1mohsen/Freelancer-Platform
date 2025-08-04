@@ -1,0 +1,14 @@
+.footer-wrapper{
+  @apply relative  mt-10 w-full text-white;
+    a{
+      @apply hover:text-primary transition-all duration-300 ; 
+    }
+  .stores-btns{
+    @apply relative;
+    &::before{
+      @apply content-[""] absolute top-0 -right-[35px] h-full w-[65px] z-10 bg-secondary;
+      transform: rotate(45deg);
+      z-index: 10;
+    }
+  }
+}  

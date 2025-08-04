@@ -1,0 +1,93 @@
+
+@layer base {
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 100;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Thin.ttf");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 200;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-XLight.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 300;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Light.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 400;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Regular.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 500;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Medium.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 600;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Medium.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 700;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Demi.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 800;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Bold.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "URWDin";
+    font-weight: 900;
+    src: url("../public/assets/fonts/urwdin/URWDINArabic-Black.ttf");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Cairo";
+    font-weight: 600;
+    src: url("../public/assets/fonts/Cairo/Cairo-Medium.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cairo";
+    font-weight: 700;
+    src: url("../public/assets/fonts/Cairo/Cairo-Bold.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cairo";
+    font-weight: 800;
+    src: url("../public/assets/fonts/Cairo/Cairo-SemiBold.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Cairo";
+    font-weight: 900;
+    src: url("../public/assets/fonts/Cairo/Cairo-Black.ttf");
+    font-display: swap;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}

@@ -1,0 +1,140 @@
+@use  "tailwindcss/base";
+@use  "tailwindcss/components";
+@use  "tailwindcss/utilities";
+@use  "@/styles/font.scss";
+@use  "@/styles/custom-classes.scss";
+@use  "@/styles/components/btn.scss";
+
+
+:root {
+  --website_primary_color: #f6b3ff;
+  --website_secondary_color: #f5ebff;
+  --website_tertiary_color: #8f8f8f;
+  --website_light_border_color: #eff0f1;
+  --website_font_color: #171717;
+  --website_light_font_color: #828aba;
+  --website_success_color: #06d6a0;
+  --website_warning_color: #ff445b;
+  --website_dark_border_color: #797979;
+  --website_footer_color: #000000;
+  --website_white_color: #f6f6f6;
+}
+
+
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+img {
+  -webkit-user-drag: none; /* For Safari */
+  user-drag: none; /* Non-standard but widely supported in modern browsers */
+  pointer-events: none; /* Optional: Prevents any mouse events on the image */
+}
+
+body {
+  @apply has-[.main-modal]:overflow-hidden relative text-text-gray ;
+}
+body:after {
+  content: "";
+  @apply has-[.main-modal]:absolute top-0 left-0 w-full h-full bg-[#000000cc];
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-border/10;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-lg;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #000;
+  -webkit-background-clip: text !important;
+  background-color: transparent !important;
+}
+
+input[type="radio"] {
+  @apply accent-primary;
+}
+
+
+html[dir="ltr"] body,
+html[dir="ltr"] body * {
+  font-family: "HelveticaNeueCond", sans-serif !important;
+}
+
+html[dir="rtl"] body,
+html[dir="rtl"] body * {
+  font-family: "URWDin", sans-serif !important;
+}
+
+.main-sec{
+  @apply py-3 lg:py-10;
+}
+.section-title{
+  @apply text-sm md:text-[20px] font-bold  ;
+}
+
+.ant-drawer-body{
+  @apply overflow-hidden #{!important}
+}
+
+.normal-input{
+  @apply h-14 lg:h-16 p-4 placeholder:text-[#2d2d2db2]  lg:placeholder:text-xl placeholder:font-semibold placeholder:text-primary outline-0 border border-[#EAEDF0] rounded-xl pe-5;
+}
+
+
+.ant-slider{
+  .ant-slider-step{
+    @apply bg-[#000]/[.026];
+  }
+  .ant-slider-track-1{
+    @apply bg-primary ;
+  }
+  .ant-slider-handle{
+    @apply after:bg-primary  after:shadow-none before:hidden ;
+  }
+}
+
+
+.flagged_phone_content_wrapper{
+  @apply flex items-center rtl:flex-row-reverse;
+  .selected_flag_wrapper{
+      @apply bg-white border border-solid border-[#ececec] rounded-[4px] py-2 px-[5px] flex items-center rtl:flex-row-reverse gap-2;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+  }
+  input{
+      @apply border border-solid border-[#ececec] w-full h-full py-[5px] px-3 rounded-[4px] transition-all leading-[18px] m-0 focus:outline-none #{!important};
+  }
+}
+
+
+.app-input{
+  @apply h-[52px] border-platinum rounded-xl  placeholder:text-gray-200 focus:border-platinum hover:border-platinum ;
+}
+
+
+.ant-checkbox{
+  .ant-checkbox-inner{
+      @apply size-6  after:w-[7px] after:h-[12px];
+  }
+  &.ant-checkbox-checked{
+    .ant-checkbox-inner{
+        @apply bg-primary border-primary hover:bg-primary after:border-white #{!important};
+    }
+  }
+}
+
+.ant-form-item-explain-error{
+  @apply text-[11px] absolute bottom-0 px-[2px] font-semibold;
+}

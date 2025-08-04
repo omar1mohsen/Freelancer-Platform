@@ -1,0 +1,13 @@
+.app-dropdown {
+  @apply invisible opacity-0 absolute top-[calc(100%+20px)] p-5 shadow-[0px_4px_20px_rgba(0,0,0,.12)]
+    bg-white rounded-s-[22px] rounded-e-[10px] transition-all duration-300 -right-6 rtl:-left-6 rtl:right-auto z-[100] -translate-y-5
+    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+    ;
+  &::before {
+    @apply content-[""] absolute border-[15px] border-solid border-white -top-7 right-5 rtl:left-5 rtl:right-auto;
+    border-color: transparent transparent #fff transparent;
+  }
+  .dropdown-wrapper {
+    @apply w-[330px];
+  }
+}

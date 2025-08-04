@@ -1,0 +1,30 @@
+.app-btn{
+    @apply cursor-pointer px-4 py-0 rounded-lg relative min-w-[150px] min-h-[52px] md:px-6 
+    text-white md:rounded-xl bg-[100%] bg-primary font-medium text-sm md:text-base 
+    inline-flex items-center gap-2 justify-center leading-none border-primary border border-solid;
+    background-image: linear-gradient(90deg, transparent 50%, #9732a4 50%) !important;
+    background-size: 400%;
+    -moz-transition: all .5s ease-in-out !important;
+    -webkit-transition: all .5s ease-in-out !important;
+    -o-transition: all .5s ease-in-out !important;
+    transition: all .5s ease-in-out !important;
+  &:hover{
+    @apply bg-white text-primary border-primary bg-[0]  #{!important}; 
+  }
+  &.sec-btn{
+    @apply bg-secprimary bg-[0] border-none text-primary hover:bg-secprimary hover:bg-[0] hover:text-primary #{!important}; 
+  }
+  &.outline-btn{
+    @apply bg-white bg-[0] text-primary hover:bg-primary hover:bg-[100%] hover:text-white #{!important}; 
+  }
+  &.white-btn{
+    @apply bg-white bg-[0] border-none text-text-gray hover:bg-[0]  hover:bg-primary hover:text-white #{!important} ; 
+  }
+  &[disabled]{
+    @apply cursor-not-allowed border-none bg-primary/[.7] bg-[0] hover:text-white #{!important};
+  }
+  &.alert-btn{
+    @apply bg-[#C21D20] border-[#C21D20] text-white bg-[0] hover:bg-[#C21D20] hover:text-white #{!important};
+  }
+
+}
