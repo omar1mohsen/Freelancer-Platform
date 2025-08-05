@@ -6,7 +6,7 @@ const CustomLandingIntro = ({title}:{title:string}) => {
 const  t = useTranslations();
 const breadCrumb = [{ title: t(title) }];
   return (
-    <main className='bg-secprimary pt-10 pb-12 lg:pb-20 relative overflow-hidden' >
+    <main className=' pt-10 pb-12 lg:pb-20 relative overflow-hidden' >
         <MaskIcon className="absolute inset-0 object-cover w-full h-full z-0"/>
         <div className="container z-[1] relative">
             <BreadCrumb BreadCrumbList={breadCrumb}   /> 

@@ -16,7 +16,7 @@ const CategoriesDrawer = ({categories}:{categories:any}) => {
   return (
     <>
        <button
-            className={`text-base cursor-pointer font-medium leading-5 text-center text-primary bg-secprimary p-3 rounded-2xl flex gap-2 items-center`}
+            className={`text-base cursor-pointer font-medium leading-5 text-center text-primary  p-3 rounded-2xl flex gap-2 items-center`}
             onClick={()=>dispatch(toggleCategoriesDrawer(true))}
         >
             <CategoryIcon/>

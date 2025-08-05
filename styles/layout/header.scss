@@ -2,26 +2,8 @@
 //     @apply  text-white bg-dark 2xl:text-lg py-4 flex items-center justify-between;
 // }
 .header-link{
-    @apply text-black  hover:text-primary flex items-center gap-2 transition-all duration-300 font-semibold;
+    @apply text-black  cursor-pointer text-center hover:text-primary transition-all duration-300 font-semibold;
     &.active-link{
-        @apply text-primary;
-        svg{
-            @apply stroke-primary;
-            path {
-                @apply fill-primary;
-            }   
-        }
-    }
-}
-
-.categories-drawer-container{
-    .ant-drawer-content-wrapper{
-        @apply md:w-[391px] #{!important};
-    }
-    .drawer-category{
-        @apply list-none py-2  lg:py-4  font-semibold lg:text-xl border-b border-b-greynormal last:border-b-0 text-dark;
-    }
-    .ant-drawer-body{
-        @apply pt-0 overflow-auto #{!important};
+        @apply text-green-500;
     }
 }

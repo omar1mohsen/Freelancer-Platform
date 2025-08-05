@@ -23,6 +23,7 @@ const LayoutWrapper = async ({ children, lng }: Props) => {
       },
     },
   };
+  
   return (
     <html lang={lng} dir={lng === "en" ? "ltr" : "rtl"}>
       <body>

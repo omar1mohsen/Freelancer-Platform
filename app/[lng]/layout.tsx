@@ -13,7 +13,7 @@ import "@/app/main.scss";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "matgar 989",
+    title: "Freelancer Platform",
     description: "",
     icons: {
       icon: Logo.src,

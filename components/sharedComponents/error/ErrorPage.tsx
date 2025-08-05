@@ -34,7 +34,7 @@ const ErrorPage = ({ error,title, description,icon }: Props) => {
     return (
         <div className="container grid items-center">
             <div className="min-h-[60vh] mx-auto grid place-items-center text-center px-8">
-                <div className="flex flex-col items-center justify-center w-full text-text-gray">
+                <div className="flex flex-col items-center justify-center w-full text-text">
                     {icon? icon :<h3 className='text-4xl md:text-6xl text-error-300'>{error.status}</h3>}
                     <h5 className="mt-4 text-lg !leading-snug md:text-3xl font-semibold">
                         {title ? t(title):error.message}

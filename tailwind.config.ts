@@ -15,17 +15,34 @@ const config: Config = {
     extend: {
       colors: {
           primary: {
-          50: '#f0f9ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
+            DEFAULT:'rgb(var(--TW-primary-color)/1)',
+            light: 'rgb(var(--TW-primary-color)/0.2)',
+            second: 'rgb(var(--TW-sec-primary-color)/1)',
+        },
+        border: 'rgb(var(--TW-border-color))',
+        body: 'rgb(var(--TW-body-color),1)',
+         success: {
+          DEFAULT: "#10b981",
+          light: "#d1fae5",
+        },
+        danger: {
+          DEFAULT: "#ef4444",
+          light: "#fee2e2",
+        },
+        warning: {
+          DEFAULT: "#f59e0b",
+          light: "#fef3c7",
+        },
+        info: {
+          DEFAULT: "#3b82f6",
+          light: "#dbeafe",
         },
         green: {
           500: '#22c55e',
           600: '#16a34a',
         },
 
-        text: "#848484",
+        text: "#000",
         platinum: "#E7E7E7",
       },
       keyframes: {
@@ -61,8 +78,7 @@ const config: Config = {
         URWDin: ["URWDin", "sans-serif"],
       },
       boxShadow: {
-        none: "none",
-        "card-shadow": "0px 7px 58px 0px #b1b1b11a",
+       "sm": "var(--TW-shadow-sm)",
       },
       transitionProperty: {
         "font-weight": "font-weight",

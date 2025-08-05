@@ -1,17 +1,19 @@
-
 // src/store/useFreelancerStore.ts
 import { create } from 'zustand';
-import { Freelancer, FilterState, SortOption } from '@/types/index';
+import { Freelancer, FilterState, SortOption } from '@/types';
 
 interface FreelancerStore {
   freelancers: Freelancer[];
   filteredFreelancers: Freelancer[];
   filters: FilterState;
   sortBy: SortOption;
+  searchTerm: string;
+
   setFreelancers: (freelancers: Freelancer[]) => void;
   setFilters: (filters: Partial<FilterState>) => void;
   setSortBy: (sortBy: SortOption) => void;
-  searchByLocation: (location: string) => void;
+  setSearchTerm: (term: string) => void;
+  searchFreelancers: () => void;
   applyFiltersAndSort: () => void;
 }
 
@@ -29,43 +31,56 @@ export const useFreelancerStore = create<FreelancerStore>((set, get) => ({
   filteredFreelancers: [],
   filters: initialFilters,
   sortBy: 'mostRated',
-  
+  searchTerm: '',
+
   setFreelancers: (freelancers) => {
-    set({ freelancers, filteredFreelancers: freelancers });
+    set({ freelancers });
     get().applyFiltersAndSort();
   },
-  
+
   setFilters: (newFilters) => {
     set((state) => ({
       filters: { ...state.filters, ...newFilters }
     }));
     get().applyFiltersAndSort();
   },
-  
+
   setSortBy: (sortBy) => {
     set({ sortBy });
     get().applyFiltersAndSort();
   },
-  
-  searchByLocation: (location) => {
-    set((state) => ({
-      filters: { ...state.filters, location }
-    }));
+
+  setSearchTerm: (term) => {
+    set({ searchTerm: term });
     get().applyFiltersAndSort();
   },
-  
+
+  searchFreelancers: () => {
+    get().applyFiltersAndSort();
+  },
+
   applyFiltersAndSort: () => {
-    const { freelancers, filters, sortBy } = get();
+    const { freelancers, filters, sortBy, searchTerm } = get();
     let filtered = [...freelancers];
-    
-    // Apply location filter
+
+    if (searchTerm) {
+      filtered = filtered.filter((freelancer) => {
+        const searchLower = searchTerm.toLowerCase();
+        return (
+          freelancer.name.toLowerCase().includes(searchLower) ||
+          freelancer.role.toLowerCase().includes(searchLower) 
+        );
+      });
+    }
+
+    // Location Filter
     if (filters.location) {
-      filtered = filtered.filter(f => 
+      filtered = filtered.filter(f =>
         f.location.toLowerCase().includes(filters.location.toLowerCase())
       );
     }
-    
-    // Apply sorting
+
+    // Sorting
     switch (sortBy) {
       case 'mostRated':
         filtered.sort((a, b) => b.rating - a.rating);
@@ -80,7 +95,6 @@ export const useFreelancerStore = create<FreelancerStore>((set, get) => ({
         filtered.sort((a, b) => a.price - b.price);
         break;
     }
-    
     set({ filteredFreelancers: filtered });
   }
 }));

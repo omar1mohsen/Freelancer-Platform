@@ -31,7 +31,7 @@ const CopyToClipboard = ({ text, isPoints = false }: Props) => {
     return (
       <button
         onClick={handleCopy}
-        className={`copy-button px-5 py-2 rounded-2xl inline-flex items-center gap-1.5 bg-secprimary font-semibold text-primary`}
+        className={`copy-button px-5 py-2 rounded-2xl inline-flex items-center gap-1.5  font-semibold text-primary`}
       >
         {<IoCopy />}
         {t(buttonText)}

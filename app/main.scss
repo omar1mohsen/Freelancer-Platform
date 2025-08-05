@@ -7,17 +7,12 @@
 
 
 :root {
-  --website_primary_color: #f6b3ff;
-  --website_secondary_color: #f5ebff;
-  --website_tertiary_color: #8f8f8f;
-  --website_light_border_color: #eff0f1;
-  --website_font_color: #171717;
-  --website_light_font_color: #828aba;
-  --website_success_color: #06d6a0;
-  --website_warning_color: #ff445b;
-  --website_dark_border_color: #797979;
-  --website_footer_color: #000000;
-  --website_white_color: #f6f6f6;
+    --TW-primary-color: 50 130 52;
+    --TW-sec-primary-color: 138 188 35;
+    --TW-border-color: 58, 69, 81,.2; 
+    --TW-body-color: 255, 255, 255;
+    --TW-shadow-sm: 0 0 20px 0 rgb(var(--TW-primary-color) / .20) ;
+    --TW-box-shadow: rgba(20, 127, 205, 0.1) 1px 1px 20px 0px inset;
 }
 
 
@@ -32,7 +27,7 @@ img {
 }
 
 body {
-  @apply has-[.main-modal]:overflow-hidden relative text-text-gray ;
+  @apply has-[.main-modal]:overflow-hidden relative text-text ;
 }
 body:after {
   content: "";
@@ -45,7 +40,7 @@ body:after {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-border/10;
+  @apply bg-primary/10;
 }
 
 /* Handle */

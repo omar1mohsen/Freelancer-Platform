@@ -1,55 +1,132 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 
+import React from 'react';
+import {
+  LinkedinFilled,
+  FacebookFilled,
+  TwitterOutlined,
+  InstagramFilled,
+  YoutubeFilled,
+} from '@ant-design/icons';
+import { useTranslations } from 'next-intl';
 
-import VisaIcon from "@/assets/images/stores/visa.svg";
-import TamaraIcon from "@/assets/images/stores/tamara.svg";
-import CardIcon from "@/assets/images/stores/card3.svg";
-import MasterIcon from "@/assets/images/stores/mastercard.svg";
-import SpayIcon from "@/assets/images/stores/spay.svg";
+const Footer: React.FC = () => {
+  const t = useTranslations('footer');
 
+  const categories = [
+    'categories.appDevelopment',
+    'categories.programming',
+    'categories.uiDesign',
+    'categories.videoAnimation',
+    'categories.writing',
+    'categories.musicAudio',
+    'categories.digitalMarketing',
+    'categories.aiServices',
+    'categories.consulting',
+    'categories.blog',
+    'categories.automation',
+    'categories.mechanic',
+    'categories.photography',
+  ];
 
+  const forClients = [
+    'yourAccount',
+    'careers',
+    'pressNews',
+    'partnerships',
+    'intellectualProperty',
+    'test',
+  ];
 
-import "@/styles/layout/footer.scss";
+  const company = [
+    'contact',
+    'inviteFriend',
+    'privacyPolicy',
+    'termsOfService',
+    'upphotoGuides',
+    'helpSupport',
+  ];
 
-interface Props {
-  settings: any;
-  categories: any;
-}
+  const forFreelancers = [
+    'trustSafety',
+    'buyingOnUpPhoto',
+    'sellingOnUpPhoto',
+  ];
 
-const paymentIcons = [
-  { src: SpayIcon, alt: "spay" },
-  { src: MasterIcon, alt: "mastercard" },
-  { src: CardIcon, alt: "card" },
-  { src: TamaraIcon, alt: "tamara" },
-  { src: VisaIcon, alt: "visa" },
-];
+  const businessSolutions = ['events', 'communityStandards', 'podcast'];
 
+  const socialIcons = [
+    { icon: <LinkedinFilled />, label: 'LinkedIn' },
+    { icon: <FacebookFilled />, label: 'Facebook' },
+    { icon: <TwitterOutlined />, label: 'Twitter' },
+    { icon: <InstagramFilled />, label: 'Instagram' },
+    { icon: <YoutubeFilled />, label: 'YouTube' },
+  ];
 
-
-export default function Footer() {
+  const renderLinks = (list: string[]) => (
+    <ul className="space-y-2">
+      {list.map((key) => (
+        <li key={key}>
+          <a href="#" className="text-gray-600 text-sm hover:text-green-500 transition-colors">
+            {t(key)}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
-    <footer className="relative z-[9] mt-auto w-full bg-white overflow-hidden max-lg:pb-16">
+    <footer className="bg-gray-100 mt-16 py-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-base font-semibold text-gray-800 mb-4">
+              {t('categories.title')}
+            </h3>
+            {renderLinks(categories)}
+          </div>
 
+          <div>
+            <h3 className="text-base font-semibold text-gray-800 mb-4">{t('forClients')}</h3>
+            {renderLinks(forClients)}
+          </div>
 
-      {/* Footer Bottom */}
-      <div className="container py-4">
-        <div className="md:flex justify-between items-center">
-          <p className="text-sm font-normal leading-6 text-dark text-start">
-            جميع الحقوق محفوظه © 2024
-          </p>
-          <div className="flex gap-3 items-center mt-4 md:mt-0">
-            <div className="flex items-center gap-5">
-              {paymentIcons.map((item, i) => (
-                <Image key={`payment_method_${i}`} src={item.src} width={100} height={50} className="w-auto h-auto" alt={item.alt} />
+          <div>
+            <h3 className="text-base font-semibold text-gray-800 mb-4">{t('company')}</h3>
+            {renderLinks(company)}
+
+            <h3 className="text-base font-semibold text-gray-800 mt-6 mb-4">
+              {t('forFreelancers')}
+            </h3>
+            {renderLinks(forFreelancers)}
+          </div>
+
+          <div>
+            <h3 className="text-base font-semibold text-gray-800 mb-4">{t('businessSolutions')}</h3>
+            {renderLinks(businessSolutions)}
+          </div>
+        </div>
+
+        <div className="border-t border-gray-300 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h4 className="text-sm font-semibold text-gray-800 mb-2">{t('socialMedia')}</h4>
+            <div className="flex gap-4">
+              {socialIcons.map((item, i) => (
+                <span
+                  key={i}
+                  className="text-xl text-gray-600 hover:text-green-500 cursor-pointer transition-colors"
+                  title={item.label}
+                >
+                  {item.icon}
+                </span>
               ))}
             </div>
           </div>
+
+          <div className="text-sm text-gray-600">{t('copyright')}</div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

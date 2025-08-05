@@ -15,7 +15,7 @@ export default function NotFound() {
           <h5 className="mt-10 text-2xl !leading-snug md:text-4xl" >
             {t("notFound.title")}
           </h5>
-          <p className="mt-4 mb-8 text-base md:text-base font-semibold text-text-gray mx-auto md:max-w-sm">
+          <p className="mt-4 mb-8 text-base md:text-base font-semibold text-text mx-auto md:max-w-sm">
             {t("notFound.description")}
           </p>
           <LocalePath href="/" className="app-btn btn-primary">

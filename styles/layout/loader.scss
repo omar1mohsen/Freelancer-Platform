@@ -180,14 +180,14 @@
     width: 40px;
     border-radius: 50%;
     border: 2px solid #e8e8e8;
-    background: #f8e4fafd;
     animation: jump 0.8s ease-in-out infinite alternate;
+    @apply bg-primary;
   }
   
   @keyframes jump {
     100% {
-      background: #9732A4;
       transform: translateZ(-3rem) scale(1.9);
+      @apply bg-primary-second;
     }
   }
   
