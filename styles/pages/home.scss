@@ -1,7 +1,8 @@
 .filters-wrapper{
     @apply border-b border-solid border-b-border py-6  ;
 
-    .ant-select{
+    .ant-select,
+    .ant-input-affix-wrapper{
         @apply border-t border-solid border-t-primary min-h-[52px] shadow-sm rounded-lg; 
         &:hover{
             @apply border-primary;

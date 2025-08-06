@@ -1,9 +1,11 @@
 
 import React, { useMemo, useCallback } from 'react';
-import {  Select, Button, Space, Tag } from 'antd';
+import {  Select, Button, Space, Tag, Input } from 'antd';
 import { ClearOutlined } from '@ant-design/icons';
 import { useTranslations } from 'next-intl';
 import { useFreelancerStore } from '@/store/store';
+import { SearchFavorite } from 'iconsax-reactjs';
+import { IoSearch } from 'react-icons/io5';
 
 const { Option } = Select;
 
@@ -155,20 +157,14 @@ const SearchFilters= () => {
 
       {/* Location and Sort Row */}
       <div className="flex flex-col sm:flex-row gap-4 items-stretch justify-between sm:items-center mb-4">
-        <Select
-          placeholder={t('filters.location', { default: 'Location' })}
-          className=" min-w-[335px]"
-          value={filters.location || undefined}
-          onChange={(value) => handleFilterChange('location', value)}
-          allowClear
-          showSearch
-        >
-          {filterOptions.locations.map(location => (
-            <Option key={location} value={location}>
-              {location} ({freelancers.filter(f => f.location === location).length})
-            </Option>
-          ))}
-        </Select>
+        <Input
+            placeholder={t('filters.location', { default: 'Location' })}
+            value={filters.location}
+            onChange={(e) => handleFilterChange('location', e.target.value)}
+            allowClear
+            className="md:max-w-[335px]"
+            prefix={<IoSearch className=" text-gray-400" />}
+        />
 
         <Select
           value={sortBy}

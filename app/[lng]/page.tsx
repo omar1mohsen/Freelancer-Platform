@@ -9,11 +9,13 @@ import LoaderPage from '@/components/UiComponents/Loader/LoaderPage';
 import SearchFilters from '@/components/pagesComponents/home/SearchFilters';
 
 import "@/styles/pages/home.scss"
+import AppSkeleton from '@/components/UiComponents/Loader/AppSkeleton';
 
 export default function Page() {
   const t = useTranslations('common');
-  const { filteredFreelancers, setFreelancers } = useFreelancerStore();
-  const [isLoading,setIsLoading] = useState(true)
+  const { filteredFreelancers, setFreelancers,isLoading:sortLoading } = useFreelancerStore();
+  const [isLoading,setIsLoading] = useState(true);
+
   useEffect(()=>{
     setTimeout(() => {
       setIsLoading(false)
@@ -39,7 +41,11 @@ export default function Page() {
               {filteredFreelancers.length} Result{filteredFreelancers.length !== 1 ? 's' : ''}
             </h3>
 
-            {filteredFreelancers.length > 0 ? (
+            {sortLoading ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+                {[...Array(6)].map((value,index)=><AppSkeleton key={`skeleton_${index}`} width='100%' height='540px'/>)}
+              </div>
+            ): filteredFreelancers.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
                 {filteredFreelancers.map((freelancer) => (
                   <div key={freelancer.id} className="w-full">

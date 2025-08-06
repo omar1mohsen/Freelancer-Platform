@@ -121,14 +121,15 @@ export const useFreelancerStore = create<FreelancerStore>()(
 
       // Set all freelancers and apply filters/sort
       setFreelancers: (freelancers) => {
-        set({ freelancers, error: null });
+        set({ freelancers, error: null});
         get().applyFiltersAndSort();
       },
 
       // Update filters
       setFilters: (newFilters) => {
         set((state) => ({
-          filters: { ...state.filters, ...newFilters }
+          filters: { ...state.filters, ...newFilters },
+          isLoading: true
         }));
         get().applyFiltersAndSort();
       },
@@ -138,45 +139,49 @@ export const useFreelancerStore = create<FreelancerStore>()(
         set({ 
           filters: INITIAL_FILTERS, 
           searchTerm: '',
-          sortBy: 'mostRated'
+          sortBy: 'mostRated',
+          isLoading: true
         });
         get().applyFiltersAndSort();
       },
 
       // Update sort option
       setSortBy: (sortBy) => {
-        set({ sortBy });
+        set({ sortBy ,isLoading: true});
         get().applyFiltersAndSort();
       },
 
       // Update search term
       setSearchTerm: (searchTerm) => {
-        set({ searchTerm });
+        set({ searchTerm,isLoading: true });
         get().applyFiltersAndSort();
       },
       // Apply filters and sorting (internal method)
       applyFiltersAndSort: () => {
         const { freelancers, filters, sortBy, searchTerm } = get();
         
+        setTimeout(() => {      
         try {
           const filtered = filterFreelancers(freelancers, filters, searchTerm);
           const sorted = sortFreelancers(filtered, sortBy);
-          
-          set({ 
-            filteredFreelancers: sorted,
-            error: null 
-          });
-        } catch (error) {
-          console.error('Error applying filters and sort:', error);
-          set({ 
-            error: 'Failed to filter freelancers',
-            filteredFreelancers: []
-          });
-        }
+            set({ 
+              filteredFreelancers: sorted,
+              isLoading: false,
+              error: null 
+            });
+          } catch (error) {
+            console.error('Error applying filters and sort:', error);
+            set({ 
+              error: 'Failed to filter freelancers',
+              isLoading: false,
+              filteredFreelancers: []
+            });
+          }
+          }, 700);
       }
     }),
     {
-      name: 'freelancer-store', // For Redux DevTools
+      name: 'freelancer-store',
     }
   )
 );
