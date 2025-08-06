@@ -1,3 +1,4 @@
+
 import { getSearchParamsObject } from "@/utils/helpers";
 import { SearchNormal } from "iconsax-reactjs";
 import { useTranslations } from "next-intl";

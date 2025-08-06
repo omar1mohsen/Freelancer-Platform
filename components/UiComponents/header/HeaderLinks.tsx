@@ -27,9 +27,9 @@ const HeaderLinks = () => {
 ];
 
   return (
-      <div className={`relative border-y border-y-gray-200   bg-white`}>
+      <div className={`relative border-y border-y-gray-200 bg-white`}>
         <GeneralSlider
-          className='py-5 container'
+          className='links-wrapper'
           slideClass='w-auto pe-5 first:ms-5'
         >
           {navLinks?.map((el: string, index: number) => (

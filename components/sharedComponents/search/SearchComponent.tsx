@@ -1,13 +1,12 @@
-"use client";
+"use client"
 import React, { useEffect, useRef, useState } from "react";
-import { Dropdown, Input, MenuProps, Spin } from "antd";
+import { Dropdown, Input, MenuProps } from "antd";
 import { IoSearch } from "react-icons/io5";
-import Image from "next/image";
 import EmptySearch from "../empty/EmptySearch";
 import { Freelancer } from "@/types";
 import { useFreelancerStore } from "@/store/store";
 import { ArrowLeft } from "iconsax-reactjs";
-import EmptyContent from "../empty/EmptyContent";
+import ImageWithFallback from "@/components/UiComponents/ImageWithFallback";
 
 const FreelancerSearchDropdown = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +15,7 @@ const FreelancerSearchDropdown = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const { filteredFreelancers, setSearchTerm: storeSetSearchTerm, searchFreelancers } = useFreelancerStore();
+  const { filteredFreelancers, setSearchTerm: storeSetSearchTerm } = useFreelancerStore();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -40,7 +39,6 @@ const FreelancerSearchDropdown = () => {
       const trimmed = searchTerm.trim();
       setDebouncedTerm(trimmed);
       storeSetSearchTerm(trimmed);
-      searchFreelancers();
     }, 400);
     return () => clearTimeout(timeout);
   }, [searchTerm]);
@@ -68,7 +66,7 @@ const FreelancerSearchDropdown = () => {
           <div className="space-y-4 max-h-[300px] overflow-y-auto">
             {filteredFreelancers.map((freelancer:Freelancer) => (
               <div key={freelancer.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                <Image
+                <ImageWithFallback
                   src={freelancer.profileImage}
                   alt={freelancer.name}
                   width={50}
@@ -96,7 +94,7 @@ const FreelancerSearchDropdown = () => {
     ];
 
   return (
-    <div ref={containerRef} className="w-full max-w-md">
+    <div ref={containerRef} className="w-full max-w-md max-sm:order-2">
       <Dropdown
         trigger={["click"]}
         open={open}
@@ -110,17 +108,13 @@ const FreelancerSearchDropdown = () => {
           onClick={() => setOpen(true)}
           allowClear
           onClear={handleClear}
-          suffix={<ArrowLeft className="p-1.5 text-sm bg-primary text-white rounded-md ltr:rotate-180"/>}
-          prefix={
-            <IoSearch
+          suffix={<ArrowLeft 
               onClick={() => {
                 storeSetSearchTerm(searchTerm.trim());
-                searchFreelancers();
               }}
-              className="cursor-pointer text-gray-400"
-            />
-          }
-          onKeyDown={(e) => e.key === "Enter" && searchFreelancers()}
+            className="p-1.5 text-sm bg-primary text-white rounded-md ltr:rotate-180"/>}
+          prefix={ <IoSearch className=" text-gray-400" /> }
+          onKeyDown={(e) => e.key === "Enter" && storeSetSearchTerm(searchTerm.trim())}
           placeholder="Search freelancers by name, role ..."
           className="min-h-[42px] font-bold border-gray-100 hover:border-gray-100"
         />

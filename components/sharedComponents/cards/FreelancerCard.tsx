@@ -32,7 +32,7 @@ const FreelancerCard: React.FC<FreelancerCardProps> = ({ freelancer }) => {
             alt={freelancer.name}
             className="size-10 rounded-full me-2"
           />
-          <span className="font-semibold text-base">{freelancer.name}</span>
+          <span className="font-semibold text-base line-clamp-1">{freelancer.name}</span>
         </div>
 
         <div className="flex items-center justify-between mb-2">
@@ -45,7 +45,7 @@ const FreelancerCard: React.FC<FreelancerCardProps> = ({ freelancer }) => {
           </div>
         </div>
 
-        <div className="text-sm text-gray-600 mb-3">
+        <div className="text-sm text-gray-600 mb-3 line-clamp-1">
           {freelancer.role}
         </div>
 

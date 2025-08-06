@@ -15,7 +15,7 @@ export async function Header({ settings }: Props) {
 
   return (
       <header className={`bg-gray-50 pb-5`}>
-        <div className="flex items-center justify-between container py-5">
+        <div className="flex items-center justify-between container py-5 flex-wrap gap-4">
           <div className="flex items-center justify-start gap-2 text-text font-bold lg:min-w-72">
             <span className="flex-content-center text-white p-1.5 rounded-lg bg-primary">
               <Home size={18}/>
@@ -23,7 +23,7 @@ export async function Header({ settings }: Props) {
             Logo
           </div>
           <SearchComponent />
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 ms-auto ">
             <LocalSwitcher />
             <Sms className="text-xl cursor-pointer" />
             <Notification className="text-xl cursor-pointer" />

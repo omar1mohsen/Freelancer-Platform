@@ -6,6 +6,9 @@ import { useFreelancerStore } from '@/store/store';
 import FreelancerCard from '@/components/sharedComponents/cards/FreelancerCard';
 import { useTranslations } from 'next-intl';
 import LoaderPage from '@/components/UiComponents/Loader/LoaderPage';
+import SearchFilters from '@/components/pagesComponents/home/SearchFilters';
+
+import "@/styles/pages/home.scss"
 
 export default function Page() {
   const t = useTranslations('common');
@@ -29,7 +32,7 @@ export default function Page() {
             {t('results')}
           </h2>
 
-          {/* <SearchFilters /> */}
+          <SearchFilters />
 
           <section className="mt-8">
             <h3 className="text-xl font-semibold text-gray-800 mb-6">
@@ -37,7 +40,7 @@ export default function Page() {
             </h3>
 
             {filteredFreelancers.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
                 {filteredFreelancers.map((freelancer) => (
                   <div key={freelancer.id} className="w-full">
                     <FreelancerCard freelancer={freelancer} />

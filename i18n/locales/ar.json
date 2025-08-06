@@ -16,13 +16,16 @@
     "mostRated": "الأعلى تقييماً",
     "lowestRated": "الأقل تقييماً",
     "highestPrice": "السعر الأعلى",
-    "lowestPrice": "السعر الأقل"
+    "lowestPrice": "السعر الأقل",
+    "newest": "الأحدث",
+    "mostReviewed": "الأكثر مراجعة"
   },
   "filters": {
     "serviceOptions": "خيارات الخدمة",
     "sellerDetails": "تفاصيل البائع",
     "budget": "الميزانية",
-    "deliveryTime": "وقت التسليم"
+    "deliveryTime": "وقت التسليم",
+    "location": "الموقع"
   },
   "categories": {
     "title": "الفئات",

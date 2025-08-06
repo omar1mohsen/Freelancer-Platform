@@ -75,61 +75,17 @@ html[dir="rtl"] body * {
 .main-sec{
   @apply py-3 lg:py-10;
 }
-.section-title{
-  @apply text-sm md:text-[20px] font-bold  ;
-}
-
-.ant-drawer-body{
-  @apply overflow-hidden #{!important}
-}
-
-.normal-input{
-  @apply h-14 lg:h-16 p-4 placeholder:text-[#2d2d2db2]  lg:placeholder:text-xl placeholder:font-semibold placeholder:text-primary outline-0 border border-[#EAEDF0] rounded-xl pe-5;
-}
 
 
-.ant-slider{
-  .ant-slider-step{
-    @apply bg-[#000]/[.026];
-  }
-  .ant-slider-track-1{
-    @apply bg-primary ;
-  }
-  .ant-slider-handle{
-    @apply after:bg-primary  after:shadow-none before:hidden ;
-  }
-}
+.links-wrapper{
+    @apply py-5 container ;
 
-
-.flagged_phone_content_wrapper{
-  @apply flex items-center rtl:flex-row-reverse;
-  .selected_flag_wrapper{
-      @apply bg-white border border-solid border-[#ececec] rounded-[4px] py-2 px-[5px] flex items-center rtl:flex-row-reverse gap-2;
-      border-top-right-radius: 0 !important;
-      border-bottom-right-radius: 0 !important;
-  }
-  input{
-      @apply border border-solid border-[#ececec] w-full h-full py-[5px] px-3 rounded-[4px] transition-all leading-[18px] m-0 focus:outline-none #{!important};
-  }
-}
-
-
-.app-input{
-  @apply h-[52px] border-platinum rounded-xl  placeholder:text-gray-200 focus:border-platinum hover:border-platinum ;
-}
-
-
-.ant-checkbox{
-  .ant-checkbox-inner{
-      @apply size-6  after:w-[7px] after:h-[12px];
-  }
-  &.ant-checkbox-checked{
-    .ant-checkbox-inner{
-        @apply bg-primary border-primary hover:bg-primary after:border-white #{!important};
+    .swiper-wrapper{
+      @apply ps-4 ;
     }
-  }
-}
 
-.ant-form-item-explain-error{
-  @apply text-[11px] absolute bottom-0 px-[2px] font-semibold;
+    .swiper-button-prev::after,
+    .swiper-button-next::after{
+      @apply text-gray-500;
+    }
 }

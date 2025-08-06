@@ -4,7 +4,7 @@ export const mockFreelancers: Freelancer[] = [
   {
     id: '1',
     name: 'Liam Carter',
-    profileImage: 'https://images.unsplash.com/photo-1603415526960-f7e0328d12da?w=500&h=500&fit=crop&crop=faces',
+    profileImage: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&h=500&fit=crop&crop=faces',
     level: 2,
     role: 'Web Developer',
     rating: 4.8,
@@ -88,7 +88,7 @@ export const mockFreelancers: Freelancer[] = [
   {
     id: '7',
     name: 'Carlos Mendez',
-    profileImage: 'https://images.unsplash.com/photo-1502767089025-6572583495b0?w=500&h=500&fit=crop&crop=faces',
+    profileImage: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=500&fit=crop&crop=faces',
     level: 1,
     role: 'Mobile App Developer',
     rating: 4.4,

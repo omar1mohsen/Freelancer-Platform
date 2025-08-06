@@ -75,9 +75,9 @@ const Footer: React.FC = () => {
   );
 
   return (
-    <footer className="bg-gray-100 mt-16 py-12 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-100 mt-16 py-12">
+      <div className="container">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-base font-semibold text-gray-800 mb-4">
               {t('categories.title')}
@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-300 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="border-t border-gray-300 mt-12 max-md:text-center pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h4 className="text-sm font-semibold text-gray-800 mb-2">{t('socialMedia')}</h4>
             <div className="flex gap-4">

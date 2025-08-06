@@ -16,13 +16,16 @@
     "mostRated": "Most Rated",
     "lowestRated": "Lowest Rated",
     "highestPrice": "Highest Price",
-    "lowestPrice": "Lowest Price"
+    "lowestPrice": "Lowest Price",
+    "newest": "Newest",
+    "mostReviewed": "Most Reviews"
   },
   "filters": {
-    "serviceOptions": "Service Options",
-    "sellerDetails": "Seller Details",
-    "budget": "Budget",
-    "deliveryTime": "Delivery Time"
+    "serviceOptions": "Service Category",
+    "sellerDetails": "Seller Level",
+    "budget": "Budget Range",
+    "deliveryTime": "Delivery Time",
+    "location": "Location"
   },
   "categories": {
     "title": "Categories",
