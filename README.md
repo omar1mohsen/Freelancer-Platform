@@ -63,17 +63,33 @@ The application supports both English and Arabic languages with:
 ## 📁 Project Structure
 
 ```
-src/
-├── app/[locale]/          # Next.js app router with locale support
-├── components/            # Reusable React components
-│   ├── FreelancerCard/   # Individual freelancer card
-│   ├── SearchFilters/    # Search and filter controls
-│   ├── Header/           # Navigation header
-│   └── Footer/           # Site footer with links
-├── store/                # Zustand state management
-├── types/                # TypeScript type definitions
-├── data/                 # Mock data and constants
-└── messages/             # Internationalization files
+freelancer-platform/
+├── app/
+│   └── [lng]/                # App router with locale folders (e.g., en, ar)
+│       ├── page.tsx         # Home page with search & results
+│       ├── error.tsx        # Error boundary page
+│       ├── layout.tsx       # Root layout
+│       ├── loading.tsx      # Loading indicator
+│       └── [...not_found]/  # Fallback 404 page
+├── assets/                   # Static assets (images, logos)
+├── components/               # Reusable components
+│   ├── layout/              # Header, footer, and layout parts
+│   ├── pagesComponents/     # Page-specific UI sections
+│   ├── sharedComponents/    # Shared reusable components
+│   └── UiComponents/        # UI primitives & utilities (buttons, loaders, etc.)
+├── data/                     # Mock data and constants
+├── hooks/                    # Custom React hooks
+├── i18n/                     # Internationalization config & translations
+├── public/                   # Public static files
+├── store/                    # Zustand state management
+├── styles/                   # Global SCSS/CSS styles
+├── types/                    # TypeScript types and interfaces
+├── utils/                    # Utility functions
+├── .env                      # Environment variables
+├── middleware.ts             # Next.js middleware for locale handling
+├── next-env.d.ts             # Next.js type definitions
+└── main.scss                 # Main global SCSS file
+# Internationalization files
 ```
 
 ## 🔧 Configuration Files
